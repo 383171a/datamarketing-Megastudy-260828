@@ -21,7 +21,7 @@
 # SQL(Structured Query Language) = 언어를 알자!! 쿼리 문법을 사용하기 위한 언어
 
 # DDL : Data Definition Language = 데이터 정의 언어 
-# 데이터를 생성.변경.삭제 -> CREATE, DROP, ALTER 
+# 데이터를 생성.변경.삭제 -> CREATE, DROP, ALTER(MODIFY, CHANGE) 
 
 # DML : Data Manipulation Language = 데이터 처리 언어
 # 생성된 구조 안에 데이터 삽입하거나 업데이트 하거나 삭제 또는 조회 -> INSERT, UPDATE, DELETE, SELECT
