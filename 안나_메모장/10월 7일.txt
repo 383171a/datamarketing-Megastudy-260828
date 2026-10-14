@@ -1,0 +1,74 @@
+GCP : 현재 구글이 가지고 있는 운영하고 있는 구글 마케팅 혹은 데이터 플랫폼과 관련한
+클라우드 저장소 및 라이브러리 도구 모음
+
+python : 프로그래밍 언어 
+!pip install pandas : package in python 
+=> 파이썬 내부에 특정 패키지(pandas)를 가져와서 설치해라 
+pip => anaconda > jupiter notebook의 전용 명령어가 아님,
+터미널에서 사용할 수 있는 운영 체제의 명령어
+
+!pip
+
+pipx(독립적인 공간의 가상환경을 만들어주는 명령어) : 1개의 프로젝트가 있다면, (wconcept 웹사이트 데이터 크롤링) 
+=> 3개의 라이브러리(패키지)를 설치한다고 가정해보자!!
+selenium / pandas / plotly > 특정 파이썬 버전에 따라 실행 혹은 미실행되는 라이브러리들이
+아니다. 하지만 어떤 라이브러리들은 특정 파이썬 버전에서만 작동을 하는 경우가 존재!!
+
+어떤것은 3.9 // 어떤것은 3.14 // 어떤것은 3.12 ..등
+이런 경우는 라이브러리들을 별도로 관리해주어야한다. (방을 만들어주어서=환경을 조성해주어서)
+
+virtual environment = 가상환경
+python3.12 -m venv . venv
+
+Google Ads - mcp 쓰려고 하는데 
+pipx로해야되
+
+이거 cursor에서 git bash에 쓰기
+python -m pip install --user pipx
+python -m pipx ensurepath -> 환경변수에 저장해!
+
+
+구글 인증 플랫폼 : OAuth
+create 버튼 = 파란색 버튼 클릭 
+
+커서에서 터미널에서
+mkdir google-ads-mcp -> google-ads-mcp이름의 폴더 생성
+구글에서 다운 받은 json 파일 paste
+-> 구글애즈가 인식할 수 있도록 변환 하기 !
+https://docs.cloud.google.com/sdk/docs/install-sdk?hl=ko 설치 -> gcloud --version
+
+
+gcloud --version
+
+로그인 범위 부여
+gcloud auth application-default login --scopes="https://www.googleapis.com/auth/adwords,https://www.googleapis.com/auth/cloud-platform" --client-id-file="C:\Users\user\Documents\UserResearch_260901\google-ads-mcp\client_secret_419993592104-mrnbrrco0dvgtnp2i50mclj3rt55ocqg.apps.googleusercontent.com.json"
+
+
+------------------------------------------------------------
+
+지난 시간 wconcept crawling data -> mysql(ERM / EDR) 
+
+단순함수(집계), 쿼리문
+
+이제는
+1. 다양한 SQL 함수 구문
+2. SubQuery  중급
+3. 집합 연산자
+4. Transaction
+5. View
+6. With
+7. CASE WHEN
+8. GROUP_CONCAT()
+9. 고급 윈도우 함수 
+
+Scrapy Crawling + FastAPI + Docker + AWS EC2
+
+끝나면 
+NoSQL
+-> MongoDB
+
+MS Azure + AWS EC2 -> VM 활용 서버운영
+
+BI : Power BI / Tableau
+
+M/L , D/L 

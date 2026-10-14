@@ -1,0 +1,235 @@
+#R - Role
+너는 데이터 기반 브랜드 전략을 수행하는 Senior Marketing Strategist이자 AI Research Agent야. 
+웹 리서치, 고객 리뷰 분석, 경쟁사 분석을 통해 마케팅 문제를 발견하고, 이를 객관적인 근거를 통해
+정의하는 것이 너의 주요 역할이야. 
+
+#C - Context 
+우리는 현재 다음 프로젝트를 진행하고 있어. 
+
+Project Name : Banapresso Brand Re:Positioning Project 
+
+Project Goal : 바나프레소의 현재 브랜드와 고객 경험을 분석하고, 경쟁 브랜드와 비교하여 바나프레소가
+향후 강화해야 할 브랜드 포지셔닝 및 마케팅 방향을 발견한다. 
+
+전체 프로젝트는 다음과 같은 Marketing Process를 진행할 계획이야. 
+
+Problem Definition
+-> NSM
+-> Funnel
+-> OKR 
+-> KPI
+-> 3C
+-> STP
+-> Persona
+-> 4P
+-> Campaign
+-> UX/UI 
+-> GTM
+-> GA4
+-> Optimization
+
+현재 진행 단계는 Phase 1. Problem Definition 단계야.
+
+이번 단계에서는 해결책을 제안하지 않을 예정이야.
+다만, 우리가 발견해야 하는 것은 "바나프레소가 현재 가지고 있는 핵심 마케팅/브랜드 문제는 무엇인가?"
+
+
+#T - Task
+
+이번 프로젝트에서 사용할 Research Workspace를 설계해줘.
+
+앞으로 다음 데이터를 순차적으로 조사할 예정이야.
+
+1. 바나프레소 공식 홈페이지 
+2. 바나프레소 Google Play 리뷰
+3. 경쟁 브랜드 공식 홈페이지 
+
+조사 결과를 서로 연결하여 최종적으로 Problem Hypothesis를 도출할 예정이야.
+
+#C - Constraint 
+
+다음과 같은 원칙을 반드시 준수해줘.
+
+1. 현재 단계에서는 Solution을 제안하지 않는다. 
+2. Problem과 Solution을 명확하게 구분한다.
+3. 확인되지 않은 사실을 만들어내지 않는다. 
+4. 사실(Fact), 해석(Interpretation), 가설(Hypothesis)을 구분한다. 
+5. 모든 중요한주장에는 반드시 출처를 기록한다. 
+6. 경쟁사는 아직 확정하지 않는다.
+7. 기존 파일이 있다면 임의로 삭제하거나 덮어쓰지 않는다.
+Markup Document = .md(text > 상위호환버전)
+8. 조사 과정에서 생성된 핵심 결과는 Markdown 파일로 저장한다. 
+
+#O - Output
+
+프로젝트 루트에 다음 구조를 생성해줘.
+
+research/
+- 00_project_context.md
+- 01_competitor_selection.md
+- 02_banapresso_official.md
+- 03_googleplay_reviews.md
+- 04_competitor_research.md
+- 05_comparison.md 
+- 06_problem_definition.md 
+
+우선, 00_project_context.md 파일에 
+
+- Project Name
+- Project Goal 
+- Current Phase
+- Research Questions
+- Research Sources
+- Research Rule
+- Research Outputs
+
+을 작성해줘
+
+아직 본격적인 웹 리서치는 실행하지 않을거야.
+
+fc-f24208a7f4e34aa7944a0fbbf5c7189d
+
+#R - Role 
+너는 국내 커피 프랜차이즈 시장을 분석하는 Competitive Intelligence Analyst야.
+
+#C - Context
+현재 진행 중인 프로젝트는 "Banapresso Brand Re:Positioning Project"이며, 
+현재 단계는 "Phase 1. Problem Definition"이야.
+ 
+프로젝트 Context를 이해하기 위해서 먼저 research/00_project_context.md 파일을 읽어줘. 
+
+이번 프로젝트에서 리서치 범위와 토큰 사용량을 제한하기 위해 바나프레소와 직접 비교할
+경쟁 브랜드를 단 1개만 선정해줘. 
+
+#T - Task
+
+바나프레소와 직접 비교하기에 가장 적합한 국내 커피 프랜차이즈 경쟁 브랜드 후보를 탐색해줘.
+후보를 3개까지만 선정하고 비교한 뒤 최종 경쟁사 1개를 선택해줘.
+
+경쟁사 선정 시, 최소 다음 기준을 고려해줘.
+
+- 가격대 유사성
+- 제품/메뉴 유사성 
+- 주요 고객층 
+- 매장 이용 상황
+- 브랜드 포지셔닝 
+- 디지털 주문 경험 
+- 시장 내 직접 경쟁 가능성 
+단순히 인지도가 가장 높은 브랜드를 선택하지 말고, "바나프레소의 문제를 발견하기 위한 Benchmark로서
+어떤 브랜드가 가장 유용한가?"를 기준으로 판단해줘.
+
+
+#C - Constraint
+
+1. 후보 브랜드는 최대 3개까지만 조사한다.
+2. 최종적으로 반드시 1개만 선정한다. 
+3. 후보 전체를 깊게 크롤링하지 않는다. 
+4. 경쟁사 선정 단계에서는 최소한의 웹 검색만 수행한다. 
+5. 추측만으로 시장점유율이나 매출을 작성하지 않는다. 
+6. 확인 가능한 정보와 추론을 구분한다. 
+7. 선정 이유를 반드시 근거아 함께 설명한다.
+8. 이후 리서치 토큰을 절약할 수 있도록 조사 범위를 최소화한다.
+
+
+#O - Output 
+
+결과를 research/01_competitor_selection.md에 저장해줘. 
+
+다음 구조를 사용해서 저장해줘.
+
+# Competitor Selection
+
+## Candidate Brands
+| Brand | Price | Target | Positioning |Digital Experience | Direct Competition |
+ 
+
+## Selection Criteria
+경쟁사 선정 기준과 판단 근거를 작성해줘
+
+## Selected Competitor
+최종 선정 브랜드 : 
+선정 이유 : 
+
+
+## Evidence
+판단에 사용한 출처와 확인된 사실을 기록해줘.
+
+
+## Next Research Target 
+선정된 경쟁사의 공식 홈페이지 URL을 기록해줘.
+
+#R - Role 
+
+너는 Voice Of Customer 분석을 담당하는 Customer Insight Analyst 
+
+#C - Context 
+
+"Banapresso Brand Re:Positioning Project"의 "Phase 1. Problem Definition"을 진행하고 있어.
+
+다음 파일을 먼저 읽어줘.
+
+01_competitor_selection.md
+
+이번에는 실제 고객이 앱과 브랜드 경험을 어떻게 평가하는지 분석할거야. 
+
+https://play.google.com/store/apps/details?id=com.banaple.foodproapp.banapresso&hl=ko
+
+
+#T - Task 
+
+Playwright MCP를 사용해서 바나프레소 Google Play 리뷰 데이터를 수집해줘.
+토큰 사용량과 실습 시간을 고려해서 최근 리뷰를 중심으로 최대 50개까지만 수집해줘. 
+
+가능하면 다음 데이터를 수집해줘.
+
+- Rating
+- Review Date
+- Review Text
+
+리뷰 작성자의 이름은 분석 목적상 크게 중요하지 않기 때문에 수집하지 않거나 저장 대상에서 제외해줘.
+
+수집된 리뷰를 분석해서 다음 항목을 찾아줘
+
+- Positive Topics 
+- Negative Topics
+- Frequently Mentioned Issues
+- App UX Issues
+- Order Experience
+- Loyalty / Membership Experience
+- Customer Pain Points
+- Customer Needs
+
+
+#C - Constraint
+
+1. 최대 50개의 리뷰만 분석한다. 
+2. 리뷰 내용을 임의로 수정하지 않는다.
+3. 리뷰에 존재하지 않는 의견을 생성하지 않는다. 
+4. 소수 의견을 전체 고객 의견처럼 일반화하지 않는다. 
+5. Positive와 Negative 의견을 모두 분석한다. 
+6. Solution을 제안하지 않는다. 
+
+#O - Output 
+분석 결과를 03_googleplay_reviews.md 파일에 저장해줘.
+
+다음 구조를 사용해서 저장해줘.
+
+#Google Play Review Analysis
+
+##Datas Summary
+수집 리뷰 수 : 
+평점 범위 : 
+수집 범위 :
+
+##Positive Topics 
+| Topic | 
+
+##Negative Topics
+
+##Customer Needs
+
+##App UX Issues
+
+##Order Experience
+
+##Source 

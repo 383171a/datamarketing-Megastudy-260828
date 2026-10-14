@@ -1,0 +1,105 @@
+데이터 수집
+데이터 전처리. 정제 -1
+데이터 저장
+데이터 전처리. 정제 -2
+데이터 시각화
+데이터 분석
+> EDA
+> ETL
+> LDA 
+데이터 요소 분석
+>상관관계
+>확률통계
+>표준편차
+>이상치
+>중앙값 평균 분산
+>정규분포
+
+데이터 예측 
+>ML/DL
+
+
+1. 데이터 수집
+>Python
+>Requests & BS4 
+>Selenium(SPA) 
+>Scrapy(BigData)
+>API
+
+2. 데이터 저장
+> MySQL, Oracle : SQL
+> MongoDB : NoSQL
+> SQL Query : SQLD
+> Data Modeling
+> Schema 
+
+3. 데이터 전처리/정제
+> Pandas & Plotly 
+> Dataframe
+
+4. 데이터 시각화 (BI/경영정보시각화 자격증)
+> Power BI(MS)
+> Tableau(Sale Force)
+
+5. 데이터 분석
+> EDA / ETL / LDA 
+
+6. 데이터 요소 분석(AdSP)
+> 피어슨 상관관계 계수 
+> 표준편차
+
+
+> 이상치
+> 중앙값 평균 분산
+> 정규분포
+> 회귀
+> 정형/비정형 
+> 범주형/수치형 
+> 정성/정량데이터
+
+7. 데이터 예측
+> ML / DL
+> Numpy
+> Python
+
+
+
+<cursor 환경 설정>  
+terminal열고
+git bash에서
+"touch index.html" 추가하기
+
+하단에 Cursor Tab 
+snoozed 3시간
+
+shift + 1 : html 
+
+Live Server 설치하기
+안될경우 : 
+1) settings에서 호스트 변경하기
+2) 우측 하단에 번개모양 클릭으로 server open
+
+a.클래스명{이름} + tab
+
+code formatter 설정
+-> prettier 
+
+ctrl + ,  => Cursor Settings 단축키
+
+만약 해당 사이트를 어디서든지 열 수 있으려면 해당 사이트는 배포의 과정을 거쳐야한다. 
+
+배포란? deployment
+
+1. git 허브에서 Repositories 만들기
+2. Repositories 이름 쓰고 바로 만들기
+3. cursor에 들어와서 터미널 git bash에서 아래 명령어 쓰기
+- git init : 깃 초기화 
+- git add . 
+- git commit -m "날짜"
+- git remote add origin https://github.com/383171a/datamarketing-Megastudy-260828
+.git
+- git push -u origin master
+- 깃허브 들어가서 확인하기
+
+https://grand-donut-547d86.netlify.app/
+

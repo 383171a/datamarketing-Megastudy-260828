@@ -51,7 +51,6 @@ WHERE item_code IN (
 USE sakila;
 # 영화 장르 : category
 SHOW TABLES;
-
 SELECT * FROM category;
 # 카테고리가 총 16개 -> 코메디 = comedy는 category_id가 5 
 
@@ -90,24 +89,28 @@ GROUP BY F.category_id;
 
 
 USE bestproducts;
+SHOW TABLES;
 
 # 어떤 테이블이 있는지 확인 가격이 어디에 있는지 화긴
-SELECT * FROM items;
-SELECT * FROM ranking;
+SELECT * FROM items; # item_code, title, ori_price, dis_price, discount_percent, provider
+SELECT * FROM ranking; # num, main_category, sub_category, item_ranking, item_code
 
 DESC items;
 DESC ranking;
 
+# 할인 가격이 10만원 이상인 상품이 메인 카테고리별로 몇 개나 있는지 조회
+# 1) JOIN
+# 2) Subquery
 
-
-SELECT main_category, COUNT(*) 
-FROM items I
-INNER JOIN  R USING()
-GROUP BY main_category;
+SELECT main_category 
+FROM ranking R
+WHERE(SELECT mainca FROM items 
+WHERE dis_price >= 100000);
 
 SELECT * FROM items LIMIT 5;
 
-SELECT * FROM items WHERE dis_price >= 100000;
+SELECT * FROM items 
+WHERE dis_price >= 100000;
 SELECT * FROM items LIMIT 5;
 
 SELECT 
