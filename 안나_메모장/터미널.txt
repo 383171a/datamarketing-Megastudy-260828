@@ -1,0 +1,15 @@
+py -3.12 -m venv .venv
+
+source .venv/Scripts/activate
+
+uvicorn main:app --reload
+
+python -m pip show fastapi
+
+ctrl + c
+
+pip install mysql-connector-python
+
+pip list
+
+python main.py

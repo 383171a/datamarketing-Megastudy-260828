@@ -1,0 +1,13 @@
+CRM 
+고객 관계 관리 마케팅
+
+1. 고객을 설득하고 개인 데이터를 수집
+- Home Bias
+- Pre Suasion
+- Social Proof 
+- Fomo 
+
+2. CRM 마케팅 자동화 
+- Zapier(자동화 워크플로우)
+- Apps Script 
+- Kit 

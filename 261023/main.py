@@ -1,9 +1,15 @@
-from itertools import product
-import os 
-import mysql.connector
-
+import os
+# import mysql.connector -> 이제 커넥터 안쓰니까 지우기
+from fastapi import FastAPI
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+
+from sqlalchemy import create_engine, text, Integer, String # -> 중요 중요
+from sqlalchemy.orm import DeclarativeBase, sessionmaker, Mapped, mapped_column
+
+# sqlalchemy : engine, session, model
+# engine : 데이터 입.출력 관리하는 물리적인 역할 담당
+# session : engine이 문제 없이 설정되었다는 전제, 실제 데이터 입.출력 역할
+# model : 실제 값 적용 시, 타입 및 포맷에 맞춰서 입.출력 될 수 있도록 지원
 
 load_dotenv()
 
@@ -12,119 +18,64 @@ app = FastAPI(
   description="FastAPI와 MySQL 직접 연결",
   version="1.0.0"
 )
+# 엔진을 만들었으니 지워도 됨
+# def get_db_connection() :
 
-def get_db_connection() :
-  return mysql.connector.connect(
-  host=os.getenv("DB_HOST"),
-  user=os.getenv("DB_USER"),
-  password=os.getenv("DB_PASSWORD"),
-  database=os.getenv("DB_NAME")
+#   return mysql.connector.connect(
+#     host=os.getenv("DB_HOST"),
+#     user=os.getenv("DB_USER"),
+#     password=os.getenv("DB_PASSWORD"),
+#     database=os.getenv("DB_NAME")
+#   )
+
+# mysql + mysqlconnector://root:anna123@localhost/api_db
+DATABASE_URL = (
+  f"mysql+mysqlconnector://"
+  f"{os.getenv('DB_USER')}:"
+  f"{os.getenv('DB_PASSWORD')}@"
+  f"{os.getenv('DB_HOST')}/"
+  f"{os.getenv('DB_NAME')}"
 )
 
-@app.get("/products", status_code=200)
-def get_products(limit: int = 10):
+engine = create_engine(DATABASE_URL)
 
-  # print(conn.is_connected()) #True
-  conn = get_db_connection()
-  cursor = conn.cursor(dictionary=True)
-
-  # 실제 작업자 역할
-  # 디폴트 값 => 향후 작업 후 반환하는 값의 형태를 튜플 : (a, b, c)
-  # 가급적 객체형태로 가져오는 것이 우리함!
-  # 파이썬 = 객체지향 프로그래밍 언어 : 문법 다양, 클라우드 컴퓨팅 서버 배포
-
-
-  cursor.execute(
-    """
-    SELECT 
-      product_id,
-      brand_name,      
-      product_name, 
-      price 
-    FROM api_products
-    LIMIT %s;
-    """, (limit, )
+# 메모리 누수 방지 with 절
+with engine.connect() as connection :
+  result = connection.execute(
+    text("SELECT 1")
   )
+  print(result.fetchone())
 
-  products = cursor.fetchall()
+# 터미널에 python main.py -> 1이 출력 되는지 확인 정상적으로 나온다면 engine이 잘 설치되었고 정상 작동 중
 
-  cursor.close()
-  conn.close()
+SessionLocal = sessionmaker(
+    bind=engine
+)
 
-  if products is None:
-    raise HTTPException(
-      status_code=404,
-      detail="Product not found"
-    )
+
+
+class Base(DeclarativeBase):
+  pass 
+
+
+class Product(Base):
+  __tablename__ = "api_products"
+
+  product_id: Mapped[int] = mapped_column(Integer, primary_key=True) 
+
+  brand_name: Mapped[str] = mapped_column(String(100))
+
+  product_name: Mapped[str] = mapped_column(String(255))
+
+  price: Mapped[int] = mapped_column(Integer)
+
+@app.get("/products")
+def get_products():
+
+  db = SessionLocal()
+
+  products = db.query(Product).all()
+
+  db.close()
 
   return products
-
-# 특정 상품 조회
-@app.get("/products/{product_id}")
-def get_product(product_id: int):
-  conn = get_db_connection()
-  cursor = conn.cursor(dictionary=True)
-  
-  cursor.execute(
-    """
-    SELECT 
-      product_id,
-      brand_name,      
-      product_name, 
-      price 
-    FROM api_products
-    WHERE product_id = %s;
-    """, (product_id, )
-  )
-
-  product = cursor.fetchone()
-
-  cursor.close()
-  conn.close()
-
-  
-  if product is None:
-    raise HTTPException(
-      status_code=404,
-      detail="Product not found"
-    )
-
-  return product
-  
-
-  # 신규 상품 생성
-@app.post("/products", status_code=201)
-def create_product(product: dict):
-
-      conn = get_db_connection()
-      cursor = conn.cursor(dictionary=True)
-
-      cursor.execute(
-        """
-        INSERT INTO api_products
-          (brand_name, product_name, price)
-        VALUES
-          (%s, %s, %s)
-        """, (
-          product["brand_name"],
-          product["product_name"],
-          product["price"]
-        )
-
-      )
-
-      conn.commit()
-
-      product_id = cursor.lastrowid
-
-      cursor.close()
-      conn.close()
-
-      return {
-        "product_id": product_id,
-        **product
-      }
-
-      # *product : tuple  // **product : dict
-
-      
