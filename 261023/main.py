@@ -1,9 +1,12 @@
+from itertools import product
 import os
 # import mysql.connector -> 이제 커넥터 안쓰니까 지우기
-from fastapi import FastAPI
+from datetime import datetime
+
+from fastapi import FastAPI, HTTPException, status
 from dotenv import load_dotenv
 
-from sqlalchemy import create_engine, text, Integer, String # -> 중요 중요
+from sqlalchemy import create_engine, Integer, String, DateTime, text # -> 중요 중요
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, Mapped, mapped_column
 
 # sqlalchemy : engine, session, model
@@ -40,11 +43,11 @@ DATABASE_URL = (
 engine = create_engine(DATABASE_URL)
 
 # 메모리 누수 방지 with 절
-with engine.connect() as connection :
-  result = connection.execute(
-    text("SELECT 1")
-  )
-  print(result.fetchone())
+# with engine.connect() as connection :
+#   result = connection.execute(
+#     text("SELECT 1")
+#   )
+#   print(result.fetchone())
 
 # 터미널에 python main.py -> 1이 출력 되는지 확인 정상적으로 나온다면 engine이 잘 설치되었고 정상 작동 중
 
@@ -59,23 +62,115 @@ class Base(DeclarativeBase):
 
 
 class Product(Base):
-  __tablename__ = "api_products"
+  __tablename__ = "products"
 
-  product_id: Mapped[int] = mapped_column(Integer, primary_key=True) 
+  product_id: Mapped[str] = mapped_column(String(50), primary_key=True) 
 
-  brand_name: Mapped[str] = mapped_column(String(100))
+  brand_id: Mapped[int] = mapped_column(Integer)
 
-  product_name: Mapped[str] = mapped_column(String(255))
+  product_name: Mapped[str] = mapped_column(String(500))
 
-  price: Mapped[int] = mapped_column(Integer)
+  product_url: Mapped[str] = mapped_column(String(700))
+
+class Brand(Base):
+  __tablename__ = "brands"
+
+  brand_id: Mapped[int] = mapped_column(Integer, primary_key=True) 
+
+  brand_name: Mapped[str] = mapped_column(String(255))
+
+  created_at: Mapped[datetime] = mapped_column(DateTime, server_default=text("CURRENT_TIMETAMP"))
+
+  updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=text("CURRENT_TIMETAMP"))
+
+
 
 @app.get("/products")
-def get_products():
+def get_products(limit: int = 10):
 
   db = SessionLocal()
 
-  products = db.query(Product).all()
+  # products = db.query(Product).all()
+
+  products = db.query(Product).limit(limit).all()
 
   db.close()
 
   return products
+
+@app.get("/products/{product_id}")
+def get_product(product_id):
+
+  db = SessionLocal()
+
+  product = db.query(Product).filter(Product.product_id == product_id).first()
+
+  db.close()
+
+  if product is None:
+    raise HTTPException(
+      status_code=404,
+      detail="상품을 찾을 수 없습니다."
+    )
+
+  return product
+
+@app.put("/products/{product_id}")
+def update_product(product_id: str, product: dict):
+
+  db = SessionLocal()
+
+  db_product = db.query(Product).filter(Product.product_id == product_id).first()
+  
+  if db_product is None :
+    db.close()
+
+    raise HTTPException(
+      status_code=404,
+      detail="상품을 찾을 수 없습니다."
+    )
+
+  db_product.brand_id = product["brand_id"]
+  db_product.product_name = product["product_name"]
+  db_product.product_url = product["product_url"]
+
+  db.commit()
+
+  db.refresh(db_product)
+
+  db.close()
+
+  return db_product
+
+
+@app.get("/brands")
+def get_brands():
+
+  db = SessionLocal()
+
+  brands = db.query(Brand).all()
+
+  db.close()
+
+  return brands
+
+@app.post("/brands", status_code=201)
+def create_brand(brand: dict):
+
+  db = SessionLocal()
+
+  new_brand = Brand(brand_name = brand["brand_name"])
+  db.add(new_brand)
+
+  db.commit()
+
+  # 위의 것 만으로는 생성된 시간을 알 수 없다, autoincrement도 알수 없으니 아래가 추가
+
+  db.refresh(new_brand)
+
+  db.close()
+
+  return new_brand
+
+
+

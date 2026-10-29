@@ -1,0 +1,40 @@
+1. 데이터 수집(datacrawl)
+- requests
+- selenium
+- beautifulsoup
+- scrapy 
+- ai agent & mcp : playwright / firecrawl
+- api : naver cloud / public web
+
+2. 데이터 저장(database) 
+- database : rdbms / nosql
+- rdbms : orcle, mysql 
+- nosql : mongodb
+
+3. api & db 심화 => data & db & server에 대한 개념 이야기
+- fast api 
+- sqlalchemy
+- orm
+- docker 
+- aws ec2 
+
+1, 2, 3번을 하는 이유
+> 마케팅 및 비지니스 문제 정의 및 전략 수집등을 위해서 원하는 "데이터를 수집"하고, 수집한 데이터를
+필요에 따라 맞는 "데이터베이스 선택 및 저장을 수행"하며, 해당 데이터를 활용해 :자체적인 API 구축 및 배포"능력을 학습
+
+4. pandas
+
+5. plotly
+
+6. BI
+
+7. M/L
+
+8. D/L
+
+꼭 git / gitbash를 쓰는 이유 : 명령어가 다양 // 리눅스 계열의 명령어
+> 만약 git이나 gitbash를 안쓰면 mac따로 window따로 해야함 // 효율적으로 명령어 쓰기 위해
+
+> command 
+powershell 
+zsh
