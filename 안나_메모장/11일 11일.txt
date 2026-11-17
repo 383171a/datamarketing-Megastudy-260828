@@ -1,0 +1,48 @@
+mongodb(NoSQL) + studio 3t(GUI) 
+- port num : 27017(세부적인 집 주소) 
+- db > collection
+- 스키마 x // 테이블 설계, 컬럼 타입, 
+- INT : BIGINT // TINYINT // SMALLINT (입력할 수 있는 자료형에 용량제한도 둠)
+관계형 데이터 베이스에서 사용한 
+- 예약어, 내장명령어 : 대문자
+- 쿼리문이 종결될 때 : ";" 
+필요없다 
+
+비관계형 데이터 베이스 관리 시스템
+> 객체지향 프로그래밍 언어 영향으로
+> JS, Java, C++, C#, Python 
+> 객체 > {"key":"value"} 
+> key.keyadd
+이렇게 생겨서 필요없다
+
+프론트엔드 & 백엔드
+> 프론트엔드 : 서버와 소통 목적 & 사용자의 눈에 보여지는 인터페이스 관리 목적
+
+> json = javascript object notation 
+> 자바스크립트 객체 표기법 
+
+0, 1 
+
+> mongodb가 2진수 형태의 json을 사용 : bson
+
+
+
+
+> 백엔드 : 사용자로부터 이벤트, 요청 발생> 프론트엔드 해당 요청값을 받아서
+> 백엔드(서버) > 디비값을 추가, 삭제, 업데이트, 변경 등 > 프론트엔드 영역으로
+
+- CRUD 
+
+- Create
+- Read
+- Update
+- Delete
+
+1) GUI 방식
+- db, collection 생성
+- collection 제거
+
+
+mysql(RDBMS) + mysql workbench(GUI)
+- port num : 3306(세부적인 집 주소)
+- db > use 'dbname' > table 

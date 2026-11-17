@@ -1,0 +1,55 @@
+1. 데이터 수집
+- requests
+- bs4
+- selenium
+- scrapy
+- api
+
+2. 데이터 제공
+- fast api 
+- sqlalchemy
+- orm
+
+3. 데이터 저장
+- mysql(rdbms) ex: wconcept(수집 -> 저장)
+> ERD / ERM 
+- mongodb(nosql) ex: blog(수집 -> 저장)
+> Aggregation Framework
+- Oracle + Docker + Dbeaver
+- Postgre + Supabase
+
+4. 데이터 배포
+- Docker
+- Render
+- AWS EC2
+
+5. 데이터 전처리 / 정제
+- EDA
+- LDA
+- ETL / ELT 
+- Pandas & Plotly
+
+6. BI(데이터 시각화) 
+- Power BI
+- Tableau
+- Looker Studio
+
+7. 데이터 예측/분석
+- Machin Learning
+ Deep Learning
+
+---
+
+Branding(브랜드 마케터)
+SNS(바이럴 마케터) 
+CRM(CRM 마케터)
+UI/UX(컨텐츠 마케터)
+Ads Campaign(퍼포먼스 마케터)
+Growth Marketing(그로스 마케터)
+Data Analyst(데이터 분석가)
+> 
+
+
+
+
+

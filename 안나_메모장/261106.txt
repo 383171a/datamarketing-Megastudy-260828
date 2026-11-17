@@ -1,0 +1,20 @@
+MongoDB 
+왜? : 데이터 수집 > 저장(우리가 배운것 : Mysql)
+> 
+
+mongodb 검색
+제품 -> 커뮤니티 에디션
+다운로드
+
+version : 8.0.34 
+
+
+환경변수에서 고급 -> 
+시스템변수 -> PATH -> 편집 -> 새로만들기
+C:\Program Files\MongoDB\Server\8.0\bin
+추가
+
+mongodb://localhost
+mysql : 3306
+fastapi : 8000
+mongodb : 24017
