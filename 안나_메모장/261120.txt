@@ -1,0 +1,14 @@
+MongoDB Aggregation Framework 문법 학습 전,
+
+- Marketing | Data Project > User Research
+- Brand Marketing > Brand Manager (BM) 
+
+- BM : 신규 브랜드 새롭게 런칭 | 기존 브랜드 리뉴얼 
+- 해당 도메인 = 카페고리 해박한 지식 
+- 국내.외 관련 지식 & 정보 습득 (외국어 1개 이상)
+
+- 리서치 > 수집 > 분석 > 틈새시장 > 브랜드 런칭 
+
+- 엑셀 // 피봇테이블 // 프로그램 
+
+- 파이썬, SQL > 활용 // BM 스킬 
